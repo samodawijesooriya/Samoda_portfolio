@@ -122,7 +122,7 @@ function About({ darkMode }) {
               </div>
               <div className="text-right mt-4 md:mt-0">
                 <p className={`${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                  2021 (held 2022)
+                  2021/ 2022
                 </p>
               </div>
             </div>
