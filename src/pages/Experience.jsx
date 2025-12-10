@@ -208,6 +208,33 @@ function Experience({ darkMode }) {
       {/* Divider */}
       <hr className={`my-16 ${darkMode ? 'border-gray-500' : 'border-gray-300'}`} />
 
+      {/* Certifications Section */}
+      <div className="mb-16">
+        <h3 className="text-4xl font-bold text-center">Certifications</h3>
+        <p className={`text-center mb-10 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+          Professional certifications and credentials.
+        </p>
+        <div className="flex flex-wrap justify-center gap-8">
+          <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-white border border-gray-200'}`}>
+            <iframe 
+              src="https://badges.parchment.com/public/assertions/0xHWHa0qTJGXbxLKBSs7ew?embedVersion=1&embedWidth=370&embedHeight=167" 
+              title="Badge: Postman API Fundamentals Student Expert" 
+              style={{ width: '370px', height: '167px', border: '0px' }}
+            />
+          </div>
+          <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-white border border-gray-200'}`}>
+            <iframe 
+              src="https://badges.parchment.com/public/assertions/km-Bq5UWS7ii1EcloGJeWA?embedVersion=1&embedWidth=370&embedHeight=167" 
+              title="Badge: Postman Flows - Beginner" 
+              style={{ width: '370px', height: '167px', border: '0px' }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Divider */}
+      <hr className={`my-16 ${darkMode ? 'border-gray-500' : 'border-gray-300'}`} />
+
       {/* Projects Section */}
       <div>
         <h3 className="text-4xl font-bold text-center">Featured Projects</h3>
