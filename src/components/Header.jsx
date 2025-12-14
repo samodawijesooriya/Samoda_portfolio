@@ -1,88 +1,105 @@
-import React from 'react';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import React, { useState } from 'react';
+import { Github, Linkedin, Twitter, Menu, X, Moon, Sun } from 'lucide-react';
 
 // Header Component
-function Header({ currentPage, setCurrentPage, darkMode }) {
+function Header({ currentPage, setCurrentPage, darkMode, toggleDarkMode }) {
+  const [mobileOpen, setMobileOpen] = useState(false);
   const navItems = ['home', 'about', 'experience', 'contact'];
 
   return (
-    <header className={`sticky top-0 z-50 ${darkMode ? 'bg-gray-800' : 'bg-white'} shadow-md`}>
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/50">
+      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
           {/* Left - Name */}
-          <div 
+          <button
             onClick={() => setCurrentPage('home')}
-            className="text-xl font-bold cursor-pointer hover:text-blue-500 transition-colors"
+            className="font-heading font-semibold text-lg text-foreground hover:text-primary transition-colors"
           >
             Samoda Wijesooriya
-          </div>
+          </button>
 
-          {/* Center - Navigation */}
-          <div className="hidden md:flex space-x-8">
+          {/* Center - Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => setCurrentPage(item)}
-                className={`capitalize font-medium transition-colors ${
-                  currentPage === item
-                    ? 'text-blue-500'
-                    : darkMode
-                    ? 'text-gray-300 hover:text-blue-400'
-                    : 'text-gray-600 hover:text-blue-500'
-                }`}
+                className={`capitalize text-sm font-medium transition-colors ${currentPage === item
+                    ? 'text-primary'
+                    : 'text-muted-foreground hover:text-primary'
+                  }`}
               >
                 {item}
               </button>
             ))}
           </div>
 
-          {/* Right - Social Links */}
-          <div className="flex items-center space-x-4">
+          {/* Right - Social Links, Dark Mode Toggle & Mobile Menu */}
+          <div className="flex items-center gap-3">
             <a
               href="https://www.linkedin.com/in/samoda-wijesooriya-3745512ba"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-blue-500 transition-colors"
+              className="p-2 rounded-lg hover:bg-secondary transition-colors text-muted-foreground hover:text-foreground"
             >
-              <Linkedin size={24} />
+              <Linkedin className="w-5 h-5" />
             </a>
             <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-blue-400 transition-colors"
+              className="p-2 rounded-lg hover:bg-secondary transition-colors text-muted-foreground hover:text-foreground"
             >
-              <Twitter size={24} />
+              <Twitter className="w-5 h-5" />
             </a>
             <a
               href="https://github.com/samodawijesooriya"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-600 transition-colors"
+              className="p-2 rounded-lg hover:bg-secondary transition-colors text-muted-foreground hover:text-foreground"
             >
-              <Github size={24} />
+              <Github className="w-5 h-5" />
             </a>
+
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 rounded-lg hover:bg-secondary transition-colors text-muted-foreground hover:text-foreground"
+              aria-label="Toggle dark mode"
+            >
+              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors text-muted-foreground hover:text-foreground"
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden mt-4 flex justify-center space-x-4">
-          {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() => setCurrentPage(item)}
-              className={`capitalize text-sm font-medium transition-colors ${
-                currentPage === item
-                  ? 'text-blue-500'
-                  : darkMode
-                  ? 'text-gray-300 hover:text-blue-400'
-                  : 'text-gray-600 hover:text-blue-500'
-              }`}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
+        {mobileOpen && (
+          <div className="md:hidden py-4 border-t border-border/50">
+            {navItems.map((item) => (
+              <button
+                key={item}
+                onClick={() => {
+                  setCurrentPage(item);
+                  setMobileOpen(false);
+                }}
+                className={`block w-full text-left py-2 capitalize text-sm font-medium transition-colors ${currentPage === item
+                    ? 'text-primary'
+                    : 'text-muted-foreground hover:text-primary'
+                  }`}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+        )}
       </nav>
     </header>
   );

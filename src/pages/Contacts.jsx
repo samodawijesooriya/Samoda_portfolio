@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, Github, Linkedin, Twitter, Instagram, Send } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, Send } from 'lucide-react';
 
 function Contact({ darkMode }) {
   const [formData, setFormData] = useState({
@@ -22,113 +22,87 @@ function Contact({ darkMode }) {
     setFormData({ name: '', email: '', message: '' });
   };
 
-  const contactInfo = [
-    {
-      icon: <Mail className="text-blue-500" size={24} />,
-      label: 'Email',
-      value: 'samodawijesooriya2@gmail.com',
-      link: 'mailto:samodawijesooriya2@gmail.com'
-    },
-    {
-      icon: <Phone className="text-green-500" size={24} />,
-      label: 'Phone',
-      value: '(+94) 70 380 4216',
-      link: 'tel:+94703804216'
-    }
-  ];
-
-  const socialLinks = [
-    {
-      icon: <Github size={28} />,
-      name: 'GitHub',
-      url: 'https://github.com/samodawijesooriya',
-      color: 'hover:text-gray-700 dark:hover:text-gray-300'
-    },
-    {
-      icon: <Linkedin size={28} />,
-      name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/samoda-wijesooriya-3745512ba',
-      color: 'hover:text-blue-600'
-    },
-    {
-      icon: <Twitter size={28} />,
-      name: 'X (Twitter)',
-      url: 'https://twitter.com',
-      color: 'hover:text-blue-400'
-    },
-    {
-      icon: <Instagram size={28} />,
-      name: 'Instagram',
-      url: 'https://www.instagram.com/samodawijesooriya?igsh=MXdiMWwzbm1qOXVhNQ==',
-      color: 'hover:text-pink-600'
-    }
-  ];
-
   return (
-    <div className="container mx-auto px-6 py-20">
-      <h2 className="text-4xl font-bold mb-8">Contact Me</h2>
-      
-      <div className="grid md:grid-cols-2 gap-12 max-w-6xl">
-        {/* Left Column - Contact Info */}
-        <div>
-          <p className={`text-lg mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-            I'd love to hear from you! Feel free to reach out for collaborations, opportunities, or just a friendly chat.
+    <div className="min-h-screen flex items-center justify-center px-6 py-20">
+      <div className="max-w-6xl w-full">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-5xl font-bold mb-4">Get In Touch</h2>
+          <p className={`text-lg ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, feel free to reach out!
           </p>
-          
-          {/* Contact Information */}
-          <div className="space-y-6 mb-8">
-            <h3 className="text-2xl font-semibold mb-4">Get In Touch</h3>
-            {contactInfo.map((contact, index) => (
-              <a
-                key={index}
-                href={contact.link}
-                className={`flex items-center space-x-4 p-4 rounded-lg transition-colors ${
-                  darkMode 
-                    ? 'bg-gray-800 hover:bg-gray-700' 
-                    : 'bg-gray-100 hover:bg-gray-200'
-                }`}
-              >
-                {contact.icon}
-                <div>
-                  <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                    {contact.label}
-                  </p>
-                  <p className="font-medium">{contact.value}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-
-          {/* Social Links */}
-          <div>
-            <h3 className="text-2xl font-semibold mb-4">Connect With Me</h3>
-            <div className="flex flex-wrap gap-4">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex items-center space-x-2 px-5 py-3 rounded-lg transition-all transform hover:scale-105 ${
-                    darkMode 
-                      ? 'bg-gray-800 hover:bg-gray-700' 
-                      : 'bg-gray-100 hover:bg-gray-200'
-                  } ${social.color}`}
-                  title={social.name}
-                >
-                  {social.icon}
-                  <span className="font-medium">{social.name}</span>
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
 
-        {/* Right Column - Contact Form */}
-        <div>
-          <div className={`p-8 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-gray-100'}`}>
-            <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-            <div className="space-y-5">
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Left Column - Contact Info Card */}
+          <div className={`p-8 rounded-2xl ${darkMode ? 'bg-gray-800/50' : 'bg-white shadow-lg'}`}>
+            <h3 className="text-2xl font-bold mb-8">Contact Information</h3>
+            
+            {/* Email */}
+            <div className="flex items-start space-x-4 mb-6">
+              <div className={`p-3 rounded-lg ${darkMode ? 'bg-cyan-500/20' : 'bg-cyan-100'}`}>
+                <Mail className="text-cyan-500" size={24} />
+              </div>
+              <div>
+                <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-1`}>
+                  Email
+                </p>
+                <p className="font-medium">samoda@example.com</p>
+              </div>
+            </div>
+
+            {/* Location */}
+            <div className="flex items-start space-x-4 mb-8">
+              <div className={`p-3 rounded-lg ${darkMode ? 'bg-cyan-500/20' : 'bg-cyan-100'}`}>
+                <MapPin className="text-cyan-500" size={24} />
+              </div>
+              <div>
+                <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-1`}>
+                  Location
+                </p>
+                <p className="font-medium">Colombo, Sri Lanka</p>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="pt-6 border-t border-gray-700">
+              <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-4`}>
+                Connect with me
+              </p>
+              <div className="flex gap-3">
+                <a
+                  href="https://www.linkedin.com/in/samoda-wijesooriya-3745512ba"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-3 rounded-lg transition-colors ${
+                    darkMode 
+                      ? 'bg-gray-700 hover:bg-gray-600' 
+                      : 'bg-gray-100 hover:bg-gray-200'
+                  }`}
+                  title="LinkedIn"
+                >
+                  <Linkedin size={24} />
+                </a>
+                <a
+                  href="https://github.com/samodawijesooriya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-3 rounded-lg transition-colors ${
+                    darkMode 
+                      ? 'bg-gray-700 hover:bg-gray-600' 
+                      : 'bg-gray-100 hover:bg-gray-200'
+                  }`}
+                  title="GitHub"
+                >
+                  <Github size={24} />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Contact Form */}
+          <div className={`p-8 rounded-2xl ${darkMode ? 'bg-gray-800/50' : 'bg-white shadow-lg'}`}>
+            <div className="space-y-6">
               <div>
                 <label 
                   htmlFor="name" 
@@ -136,19 +110,19 @@ function Contact({ darkMode }) {
                     darkMode ? 'text-gray-300' : 'text-gray-700'
                   }`}
                 >
-                  Your Name
+                  Name
                 </label>
                 <input
                   id="name"
                   name="name"
                   type="text"
-                  placeholder="John Doe"
+                  placeholder="Your name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  className={`w-full px-4 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500 ${
                     darkMode 
-                      ? 'bg-gray-700 text-white border border-gray-600' 
-                      : 'bg-white text-gray-900 border border-gray-300'
+                      ? 'bg-gray-700/50 text-white placeholder-gray-500' 
+                      : 'bg-gray-50 text-gray-900 placeholder-gray-400 border border-gray-200'
                   }`}
                 />
               </div>
@@ -160,19 +134,19 @@ function Contact({ darkMode }) {
                     darkMode ? 'text-gray-300' : 'text-gray-700'
                   }`}
                 >
-                  Your Email
+                  Email
                 </label>
                 <input
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="john@example.com"
+                  placeholder="your@email.com"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  className={`w-full px-4 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500 ${
                     darkMode 
-                      ? 'bg-gray-700 text-white border border-gray-600' 
-                      : 'bg-white text-gray-900 border border-gray-300'
+                      ? 'bg-gray-700/50 text-white placeholder-gray-500' 
+                      : 'bg-gray-50 text-gray-900 placeholder-gray-400 border border-gray-200'
                   }`}
                 />
               </div>
@@ -184,26 +158,26 @@ function Contact({ darkMode }) {
                     darkMode ? 'text-gray-300' : 'text-gray-700'
                   }`}
                 >
-                  Your Message
+                  Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  placeholder="Tell me about your project or inquiry..."
-                  rows="5"
+                  placeholder="Your message..."
+                  rows="6"
                   value={formData.message}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none ${
+                  className={`w-full px-4 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500 resize-none ${
                     darkMode 
-                      ? 'bg-gray-700 text-white border border-gray-600' 
-                      : 'bg-white text-gray-900 border border-gray-300'
+                      ? 'bg-gray-700/50 text-white placeholder-gray-500' 
+                      : 'bg-gray-50 text-gray-900 placeholder-gray-400 border border-gray-200'
                   }`}
                 ></textarea>
               </div>
               
               <button
                 onClick={handleSubmit}
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors flex items-center justify-center space-x-2 font-medium"
+                className="w-full bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-lg transition-all flex items-center justify-center space-x-2 font-medium"
               >
                 <Send size={20} />
                 <span>Send Message</span>

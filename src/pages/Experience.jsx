@@ -145,7 +145,7 @@ function Experience({ darkMode }) {
   ];
 
   return (
-    <div className="container mx-auto px-6 py-20">
+    <div className="container mx-auto px-6 pt-24 py-20">
       
       {/* Work Experience Section */}
       <div className="mb-16">
@@ -214,21 +214,53 @@ function Experience({ darkMode }) {
         <p className={`text-center mb-10 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
           Professional certifications and credentials.
         </p>
-        <div className="flex flex-wrap justify-center gap-8">
-          <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-white border border-gray-200'}`}>
-            <iframe 
-              src="https://badges.parchment.com/public/assertions/0xHWHa0qTJGXbxLKBSs7ew?embedVersion=1&embedWidth=370&embedHeight=167" 
-              title="Badge: Postman API Fundamentals Student Expert" 
-              style={{ width: '370px', height: '167px', border: '0px' }}
-            />
-          </div>
-          <div className={`p-4 rounded-lg ${darkMode ? 'bg-gray-800' : 'bg-white border border-gray-200'}`}>
-            <iframe 
-              src="https://badges.parchment.com/public/assertions/km-Bq5UWS7ii1EcloGJeWA?embedVersion=1&embedWidth=370&embedHeight=167" 
-              title="Badge: Postman Flows - Beginner" 
-              style={{ width: '370px', height: '167px', border: '0px' }}
-            />
-          </div>
+        <div className="flex flex-wrap justify-center gap-6">
+          <a 
+            href="https://badges.parchment.com/public/assertions/0xHWHa0qTJGXbxLKBSs7ew"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`p-6 rounded-lg transition-all hover:shadow-xl w-full sm:w-[400px] ${darkMode ? 'bg-gray-800 hover:bg-gray-750' : 'bg-white hover:shadow-2xl border border-gray-200'}`}
+          >
+            <div className="flex items-start gap-4">
+              <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${darkMode ? 'bg-orange-900/30' : 'bg-orange-100'}`}>
+                <Award className="w-6 h-6 text-orange-500" />
+              </div>
+              <div className="flex-1">
+                <h4 className={`font-bold mb-1 ${darkMode ? 'text-cyan-400' : 'text-cyan-600'}`}>
+                  Postman API Fundamentals Student Expert
+                </h4>
+                <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  Postman
+                </p>
+                <p className={`text-sm ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+                  Dec 10, 2025
+                </p>
+              </div>
+            </div>
+          </a>
+          <a 
+            href="https://badges.parchment.com/public/assertions/km-Bq5UWS7ii1EcloGJeWA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`p-6 rounded-lg transition-all hover:shadow-xl w-full sm:w-[400px] ${darkMode ? 'bg-gray-800 hover:bg-gray-750' : 'bg-white hover:shadow-2xl border border-gray-200'}`}
+          >
+            <div className="flex items-start gap-4">
+              <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${darkMode ? 'bg-orange-900/30' : 'bg-orange-100'}`}>
+                <Award className="w-6 h-6 text-orange-500" />
+              </div>
+              <div className="flex-1">
+                <h4 className={`font-bold mb-1 ${darkMode ? 'text-cyan-400' : 'text-cyan-600'}`}>
+                  Postman Flows - Beginner
+                </h4>
+                <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  Postman
+                </p>
+                <p className={`text-sm ${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>
+                  Dec 10, 2025
+                </p>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
 
