@@ -47,7 +47,7 @@ function Contact({ darkMode }) {
                 <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} mb-1`}>
                   Email
                 </p>
-                <p className="font-medium">samoda@example.com</p>
+                <p className="font-medium">samodawijesooriya2@gmail.com</p>
               </div>
             </div>
 
